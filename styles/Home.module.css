@@ -9,12 +9,16 @@
 }
 
 .main {
-  padding: 5rem 0;
-  flex: 1;
+  padding: 1rem 1.4375rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 4.9375rem 1fr 1fr 1.3125rem;
+  grid-gap: 1.625rem;
+  /*flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center;*/
 }
 
 .footer {
