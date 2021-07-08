@@ -1,13 +1,10 @@
-import { Icon } from '@iconify/react'
+import MainHeader from './MainHeader'
 import styles from '../styles/Editor.module.css'
 
 const Editor = (props) => {
   return (
     <section className={styles.editor}>
-      <header className={styles.editor__header}>
-        <b>Editor</b>
-        <Icon icon="fa-solid:expand-arrows-alt" />
-      </header>
+      <MainHeader />
       <textarea className={styles.editor__body}></textarea>
     </section>
   )
