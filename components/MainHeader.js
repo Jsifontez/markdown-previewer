@@ -1,11 +1,12 @@
 import Icons from './Icons'
 import styles from '../styles/MainHeader.module.css'
 
-const MainHeader = props => {
+const MainHeader = ({section, icons}) => {
+  console.log(icons)
   return (
     <header className={styles.header}>
-      <b>Editor</b>
-      <Icons icons={['fa-solid:expand-arrows-alt']} />
+      <b>{section}</b>
+      <Icons icons={icons} />
     </header>
   )
 }
