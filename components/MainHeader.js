@@ -1,13 +1,11 @@
-import { Icon } from '@iconify/react'
+import Icons from './Icons'
 import styles from '../styles/MainHeader.module.css'
 
 const MainHeader = props => {
   return (
     <header className={styles.header}>
       <b>Editor</b>
-      <div className={styles.header__icons}>
-        <Icon icon="fa-solid:expand-arrows-alt" />
-      </div>
+      <Icons icons={['fa-solid:expand-arrows-alt']} />
     </header>
   )
 }
