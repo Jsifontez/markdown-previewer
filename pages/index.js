@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Layout from '../components/Layout'
+import Editor from '../components/Editor'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -11,12 +12,7 @@ export default function Home() {
       </Head>
 
       <Layout>
-        <section  style={{height: '615px', width: '100%'}}>
-          <header style={{height:'40px'}}>
-            <b>Editor</b>
-          </header>
-          <textarea style={{height: '100%'}}></textarea>
-        </section>
+        <Editor />
       </Layout>
     </>
   )
