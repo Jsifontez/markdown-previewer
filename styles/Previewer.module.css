@@ -1,0 +1,11 @@
+.previewer__container {
+  width:  100%;
+  height: 38.4375rem; /*615px*/
+}
+
+.previewer {
+  padding: .5rem;
+  overflow: auto;
+  height: calc(100% - 3rem);
+  border: 1px solid rgb(118, 118, 118);
+}
