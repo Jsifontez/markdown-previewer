@@ -2,7 +2,7 @@ import MainHeader from './MainHeader'
 import styles from '../styles/Editor.module.css'
 
 const Editor = (props) => {
-  const icons = [
+    const icons = [
     'icomoon-free:copy',
     'akar-icons:download',
     'ic:round-clear',
@@ -12,7 +12,7 @@ const Editor = (props) => {
   return (
     <section className={styles.editor}>
       <MainHeader section='Editor' icons={icons} />
-      <textarea className={styles.editor__body}></textarea>
+      <textarea className={styles.editor__body} onChange={props.mark}></textarea>
     </section>
   )
 }
