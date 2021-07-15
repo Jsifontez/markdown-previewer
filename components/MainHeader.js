@@ -2,7 +2,6 @@ import Icons from './Icons'
 import styles from '../styles/MainHeader.module.css'
 
 const MainHeader = ({section, icons}) => {
-  console.log(icons)
   return (
     <header className={styles.header}>
       <b>{section}</b>
