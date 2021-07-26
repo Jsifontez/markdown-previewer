@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Layout from '../components/Layout'
 import Editor from '../components/Editor'
 import Previewer from '../components/Previewer'
-import styles from '../styles/Home.module.css'
 
 export default function Home() {
   const [markdown, setMarkdown] = useState('')

@@ -7,7 +7,7 @@ const Previewer = (props) => {
   const icons = ['fa-solid:expand-arrows-alt']
 
   return (
-    <section className={styles.previewer__container}>
+    <section className="container">
       <MainHeader section='Previewer' icons={icons} />
       <section className={styles.previewer}>
         <ReactMarkdown remarkPlugins={[gfm]} children={props.markdown}/>

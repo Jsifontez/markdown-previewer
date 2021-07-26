@@ -10,7 +10,7 @@ const Editor = (props) => {
   ]
 
   return (
-    <section className={styles.editor}>
+    <section className="container">
       <MainHeader section='Editor' icons={icons} />
       <textarea className={styles.editor__body} onChange={props.mark}></textarea>
     </section>
