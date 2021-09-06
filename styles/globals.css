@@ -15,6 +15,10 @@ a {
   box-sizing: border-box;
 }
 
+.header {
+  text-align: center;
+}
+
 .main {
   flex: 1;
   display: flex;
