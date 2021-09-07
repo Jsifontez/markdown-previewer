@@ -9,6 +9,7 @@ export default function Home() {
   const [markdown, setMarkdown] = useState('')
 
   const changeMarkdown = ev => setMarkdown(ev.target.value)
+  const clearMarkdown = () => setMarkdown('')
 
   return (
     <>
@@ -17,7 +18,7 @@ export default function Home() {
       </Head>
 
       <Layout>
-        <Editor mark={changeMarkdown} />
+        <Editor mark={changeMarkdown} clearMark={clearMarkdown}/>
         <Previewer markdown={markdown} />
       </Layout>
     </>

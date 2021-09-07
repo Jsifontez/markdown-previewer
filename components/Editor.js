@@ -37,7 +37,12 @@ const Editor = (props) => {
     {
       i: 'ic:round-clear',
       k: 'icon-02',
-      f: function () { console.log('you\'re clearing') }
+      f: (ev) => {
+        // improve this way of do this. Ask in FCC if this is a good practice
+        const editor = document.querySelector('#text')
+        editor.value = ""
+        props.clearMark()
+      }
     },
     {
       i: 'fa-solid:expand-arrows-alt',
