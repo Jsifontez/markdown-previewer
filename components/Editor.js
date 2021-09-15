@@ -1,7 +1,10 @@
+import { useState } from 'react'
 import MainHeader from './MainHeader'
 import styles from '../styles/Editor.module.css'
 
 const Editor = (props) => {
+  const [textMd, setTextMd] = useState('')
+
   const icons = [
     {
       i: 'icomoon-free:copy',
@@ -47,7 +50,7 @@ const Editor = (props) => {
         downloadLink.download = fileNameToSaveAs // assign the name of the file to download including the extension as string (e.g. markdown.md)
         downloadLink.innerHTML = "Download File" // I don't know the reason of this step, I need a deep research
 
-        // to download the file I to use the URL.createObjectURL() API. The URL lifetime is tied to the document in the window on which it was created. The new object URL represents the specified File object or Blob object.
+        // to download the file I need to use the URL.createObjectURL() API. The URL lifetime is tied to the document in the window on which it was created. The new object URL represents the specified File object or Blob object.
         // the URL.createObjectURL vary depending of the browser
         // read more: https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL
         // more about how to use URL object: https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications#example_using_object_urls_to_display_images
@@ -106,10 +109,82 @@ const Editor = (props) => {
     }
   ]
 
+  const handleTextAreaC = e => {
+    setTextMd(e.target.value)
+    props.mark(e.target.value)
+  }
+
+  const handleDrop = e => {
+    e.preventDefault()
+    e.stopPropagation()
+
+    // to copy the text of a file, You need to access to dataTransfer of event
+    const dt = e.dataTransfer
+    // then use the files in that dataTransfer to pass it to a function to handle the files
+    let files = []
+    // below is used to work with multiple files. I will use just a single file instead
+    /*for (let i = 0; i < dt.items.length; i++) {
+      if (dt.items[i].kind == 'file' && (dt.items[i].type == 'text/markdown' || dt.items[i].type == 'text/plain')) {
+        files.push(dt.files[i])
+      }
+    }*/
+
+    // I just going to work with one file
+    if (dt.items[0].kind == 'file' && (dt.items[0].type == 'text/markdown' || dt.items[0].type == 'text/plain')) {
+      files.push(dt.files[0])
+    } else if (dt.items[0].kind == 'string') {
+      const textToCopy = dt.getData('text')
+      handleCopyTextFromFile(textToCopy)
+    }
+
+    if (files.length) handleFiles(files)
+  }
+
+  const dragEnter = e => {
+    e.preventDefault()
+    e.stopPropagation()
+  }
+
+  /*
+   * this function goin to create a FileReader to allow the web read the file(s) dropped by the user. Once the reader loads end, the reader will copy the text of the first file in the 'markdown' state to show it in the textarea
+   * FileReaders object lets web applications asynchronously read the contents of files (or raw data buffers) stored on the user's computer, using File or Blob objects to specify the file or data to read.
+   * more information: https://developer.mozilla.org/en-US/docs/Web/API/FileReader
+   *
+   * To read more than one file at one You need to use Promises and Promise all. Can use async/await instead
+   * more info about read multiple files:
+   * https://ourcodeworld.com/articles/read/1438/how-to-read-multiple-files-at-once-using-the-filereader-class-in-javascript
+   * https://www.taniarascia.com/promise-all-with-async-await/
+   *
+   * How to read files from a "file" input: https://thiscouldbebetter.wordpress.com/2012/12/18/loading-editing-and-saving-a-text-file-in-html5-using-javascrip/
+  */
+  const handleFiles = files => {
+    // instantiate a new file reader
+    const r = new FileReader()
+    // we wait until the file reader load to check a single file
+    r.onload = (e) => {
+      const textFromF = e.target.result
+      handleCopyTextFromFile(textFromF)
+    }
+    r.readAsText(files[0], 'UTF-8')
+  }
+
+  const handleCopyTextFromFile = textToCopy => {
+    setTextMd(textToCopy)
+    props.mark(textToCopy)
+  }
+
   return (
     <section className="container">
       <MainHeader section='Editor' icons={icons} />
-      <textarea id="text" className={styles.editor__body} onChange={props.mark}></textarea>
+      <textarea
+        id="text"
+        className={styles.editor__body}
+        onChange={handleTextAreaC}
+        value={textMd}
+        onDragEnter={dragEnter}
+        onDrop={handleDrop}
+      >
+      </textarea>
     </section>
   )
 }
