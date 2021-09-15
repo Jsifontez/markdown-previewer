@@ -8,10 +8,7 @@ import Previewer from '../components/Previewer'
 export default function Home() {
   const [markdown, setMarkdown] = useState('')
 
-  const changeMarkdown = e => {
-    setMarkdown(e)
-    console.log('the text area has change')
-  }
+  const changeMarkdown = text => setMarkdown(text)
   const clearMarkdown = () => setMarkdown('')
 
   return (
@@ -21,7 +18,11 @@ export default function Home() {
       </Head>
 
       <Layout>
-        <Editor  mark={changeMarkdown} clearMark={clearMarkdown}/>
+        <Editor
+          markdown={markdown}
+          handleChangeM={changeMarkdown}
+          clearMark={clearMarkdown}
+        />
         <Previewer markdown={markdown} />
       </Layout>
     </>
