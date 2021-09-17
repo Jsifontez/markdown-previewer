@@ -1,7 +1,9 @@
+import { useState } from 'react'
 import MainHeader from './MainHeader'
 import styles from '../styles/Editor.module.css'
 
 const Editor = (props) => {
+  const [isDrag, setIsDrag] = useState(props.isDrag)
   const icons = [
     {
       i: 'icomoon-free:copy',
@@ -108,7 +110,7 @@ const Editor = (props) => {
 
   const handleDrop = e => {
     e.preventDefault()
-    e.stopPropagation()
+    setIsDrag(false)
 
     // to copy the text of a file, You need to access to dataTransfer of event
     const dt = e.dataTransfer
@@ -130,11 +132,6 @@ const Editor = (props) => {
     }
 
     if (files.length) handleFiles(files)
-  }
-
-  const handleDragEnterOver = e => {
-    e.preventDefault()
-    e.stopPropagation()
   }
 
   /*
@@ -163,15 +160,20 @@ const Editor = (props) => {
   const handleCopyTextFromFile = textToCopy => props.handleChangeM(textToCopy)
 
   return (
-    <section className="container">
+    <section className="container"
+      onDragEnter={e => setIsDrag(true)}
+      onDragLeave={e => setIsDrag(false)}
+    >
       <MainHeader section='Editor' icons={icons} />
       <textarea
         id="text"
-        className={styles.editor__body}
+        className={`
+          ${styles.editor__body}
+          ${props.isDrag ? styles.body__draggin : ''}
+          ${isDrag ? styles.body__draggin : ''}
+        `}
         onChange={e => props.handleChangeM(e.target.value)}
         value={props.markdown}
-        onDragEnter={handleDragEnterOver}
-        onDragOver={handleDragEnterOver}
         onDrop={handleDrop}
       >
       </textarea>

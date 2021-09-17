@@ -3,3 +3,8 @@
   padding: .8rem;
   height: calc(100% - 3rem + 1px);
 }
+
+.body__draggin {
+  background-color: lightsalmon;
+  border: .3rem dashed black;
+}
