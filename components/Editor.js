@@ -100,11 +100,6 @@ const Editor = (props) => {
         editor.value = ""
         props.clearMark()
       }
-    },
-    {
-      i: 'fa-solid:expand-arrows-alt',
-      k: 'icon-03',
-      f: function () { console.log('you\'re expanding') }
     }
   ]
 
