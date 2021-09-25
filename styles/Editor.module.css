@@ -1,8 +1,15 @@
 .editor__body {
   width: 100%;
   padding: .8rem;
-  height: calc(100% - 3rem + 1px);
   resize: none;
+  height: calc(100% - 3rem + 1px);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.editor__body:focus-visible {
+  outline: none;
+  box-shadow: 1px 1px 9px 2px hsl(52deg 100% 47%);
 }
 
 .body__draggin {

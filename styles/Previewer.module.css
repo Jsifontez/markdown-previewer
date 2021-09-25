@@ -1,6 +1,9 @@
 .previewer {
-  padding: 0 .8rem;
   overflow: auto;
+  padding: 0 .8rem;
+  background-color: white;
   height: calc(100% - 3rem + 1px);
   border: 1px solid rgb(118, 118, 118);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
