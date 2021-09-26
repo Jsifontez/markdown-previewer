@@ -7,3 +7,43 @@
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
 }
+
+.previewer h1 {
+  font-size: 1.8rem;
+}
+
+.previewer pre {
+  color: white;
+  overflow: auto;
+  padding: .5rem;
+  border-radius: .5rem;
+  background-color: #272822;
+}
+
+.previewer code {
+  color:  white;
+  border-radius: .25rem;
+  padding: 0 .25rem;
+  background-color: #272822;
+}
+
+.previewer img {
+  width: 100%;
+  border-radius: .5rem;
+}
+
+.previewer a {
+  color: #811bac;
+  font-weight: bold;
+}
+
+.previewer a:focus {
+  outline-color: hsl(52deg 100% 47%);
+}
+
+.previewer blockquote {
+  font-weight: light;
+  border-radius: .5rem;
+  padding: .15rem .5rem;
+  background-color: white;
+}

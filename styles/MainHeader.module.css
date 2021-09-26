@@ -6,6 +6,6 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   justify-content: space-between;
-  background-color:  hsl(0, 0%, 83%);
-  background-color: hsl(282deg 31% 67%);;
+  /*background-color: hsl(0, 0%, 83%);*/
+  background-color: hsl(282deg 31% 67%);
 }

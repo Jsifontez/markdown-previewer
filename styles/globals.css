@@ -43,6 +43,11 @@ main {
   max-width: calc(50vw - 2.075rem);
 }
 
+.container section, .container textarea {
+  /*background-color: hsl(282, 73%, 85%);*/
+  background-color: lightgray;
+}
+
 /*media queries*/
 @media (min-width:720px) {
   main {
