@@ -18,7 +18,9 @@ const Previewer = (props) => {
     <section className="container">
       <MainHeader section='Previewer' icons={icons} />
       <section className={styles.previewer}>
-        <ReactMarkdown remarkPlugins={[gfm]} children={props.markdown}/>
+        <ReactMarkdown remarkPlugins={[gfm]}>
+          {props.markdown}
+        </ReactMarkdown>
       </section>
     </section>
   )
