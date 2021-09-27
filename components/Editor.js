@@ -96,12 +96,7 @@ const Editor = (props) => {
     {
       i: 'ic:round-clear',
       k: 'icon-02',
-      f: (ev) => {
-        // improve this way of do this. Ask in FCC if this is a good practice
-        const editor = document.querySelector('#text')
-        editor.value = ""
-        props.clearMark()
-      }
+      f: () => { props.clearMark() }
     }
   ]
 
