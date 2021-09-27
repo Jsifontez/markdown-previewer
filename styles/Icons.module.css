@@ -5,5 +5,10 @@
 }
 
 .icon:hover {
-  color:  hsl(52deg 100% 47%);
+  color: hsl(52deg 100% 47%);
+}
+
+.icon:focus {
+  outline: none;
+  color: hsl(52deg 100% 47%);
 }
