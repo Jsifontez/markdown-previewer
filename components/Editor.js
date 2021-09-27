@@ -10,7 +10,7 @@ const Editor = (props) => {
       k: 'icon-00',
       f: (e) => {
         // select the element to copy
-        const editor = document.querySelector('#text')
+        // const editor = document.querySelector('#text')
         // for input or textarea use the element.select()
         // editor.select()
         // for other elements use the range
@@ -21,7 +21,7 @@ const Editor = (props) => {
         try {
           // execute the copy command with execCommand (deprecated) or with the navigator.clipboard
           // const copy = document.execCommand('copy')
-          navigator.clipboard.writeText(editor.value)
+          navigator.clipboard.writeText(props.markdown)
         } catch(err) {
           console.log('Oops, unable to copy the text')
         }
@@ -35,7 +35,7 @@ const Editor = (props) => {
       i: 'akar-icons:download',
       k: 'icon-01',
       f: function saveTextAsFile () {
-        const textToWrite = document.querySelector('#text').value
+        const textToWrite = props.markdown
         const fileNameToSaveAs = 'markdown.md'
 
         if (textToWrite) {
