@@ -6,6 +6,14 @@ const Layout = ({ children }) => {
         <h1 id="title">Markdown Previewer</h1>
       </header>
       {children}
+      <footer>
+        <p>
+          Code with ❤️ by <a href="twitter.com/jsifontez_" target="_blank">@jsifontez_</a>
+        </p>
+        <p>
+          Commits are welcome in <a href="https://github.com/Jsifontez/markdown-previewer" target="_blank">GitHub</a>
+        </p>
+      </footer>
     </>
   )
 }

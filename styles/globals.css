@@ -49,6 +49,32 @@ main {
   background-color: lightgray;
 }
 
+footer {
+  color: white;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  font-size: .8rem;
+}
+
+footer a {
+  color: hsl(52deg 100% 47%);
+}
+
+footer a:hover {
+  font-weight: bold;
+}
+
+footer a:focus {
+  outline-color: white;
+}
+
+footer a:visited {
+  color: hsl(52deg 75% 50%);
+}
+
 /*media queries*/
 @media (min-width:720px) {
   main {
